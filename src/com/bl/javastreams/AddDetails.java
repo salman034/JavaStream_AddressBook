@@ -5,16 +5,11 @@ import java.util.Scanner;
 
 public class AddDetails {
     Scanner scanDetails = new Scanner(System.in);
-    ArrayList<PersonDetails> contactDetails = new ArrayList<PersonDetails>();
-
-    // Edit method use to edit the data.
     public void editContact(ArrayList<PersonDetails> contactDetails) {
         String data = scanDetails.nextLine();
-        int index = contactDetails.indexOf(data);
         System.out.println(contactDetails.size());
 
         for (int i = 0; i < contactDetails.size(); i++) {
-
             if(contactDetails.get(i).getFirstName().equals(data)) {
                 System.out.println("1. Enter The update First Name :");
                 System.out.println("2. Enter The update LastName. ");
@@ -75,15 +70,14 @@ public class AddDetails {
             }
         }
     }
-    // Delete method use to delete the data.
+
     public void deleteContact(ArrayList<PersonDetails> contatctDetails) {
         System.out.println("Enter The Name");
         String data = scanDetails.nextLine();
         for (int i = 0; i < contatctDetails.size(); i++) {
             if (contatctDetails.get(i).getFirstName().equals(data)) {
                 contatctDetails.remove(i);
-            }
-            else
+            } else
                 System.out.println("not match any details");
         }
     }
