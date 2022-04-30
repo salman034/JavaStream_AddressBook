@@ -81,6 +81,7 @@ public class AddDetails {
             }
         }
     }
+
     // Delete method use to delete the data.
     public void deleteContact(ArrayList<PersonDetails> contactDetails) {
         System.out.println("Enter The Name");
@@ -92,11 +93,13 @@ public class AddDetails {
                 System.out.println("not match any details");
         }
     }
+
     // Ignore Duplicate method when added details.
     public boolean duplicateDetailsRemove(ArrayList<PersonDetails> addNewDetails, String firstName) {
         boolean result = addNewDetails.stream().filter(personDetail -> personDetail.getFirstName().equals(firstName)).findFirst().isPresent();
         return result;
     }
+
     // search Person in a City or State across the multiple AddressBook.
     public void searchDetails(Hashtable<Integer, ArrayList<PersonDetails>> hashtable) {
         System.out.println("Enter the City or State Name");
@@ -105,8 +108,7 @@ public class AddDetails {
         for (int i = 1; i <= hashtable.size(); i++) {
             List<PersonDetails> numberOfCity = hashtable.get(i).stream().filter(search -> search.getCity().equalsIgnoreCase(cityOrStateName)
                     || search.getState().equals(cityOrStateName)).collect(Collectors.toList());
-            System.out.println("Details of CityOrState " + numberOfCity + "\n"
-                    + "Number of Times " + numberOfCity.size());
+            System.out.println("Details of CityOrState " + numberOfCity + "\n" + "Number of Times " + numberOfCity.size());
         }
     }
 }
